@@ -29,7 +29,6 @@ class InspireCommand extends Command
      */
     public function handle(): void
     {
-        Http::
         render(<<<'HTML'
             <div class="py-1 ml-2">
                 <div class="px-1 bg-blue-300 text-black">Laravel Zero</div>

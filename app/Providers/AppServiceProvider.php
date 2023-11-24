@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Crell\Serde\SerdeCommon;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(
+            SerdeCommon::class,
+            fn () => new SerdeCommon()
+        );
+
+        $this->app->alias(SerdeCommon::class, 'serde');
     }
 }
