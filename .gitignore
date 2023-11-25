@@ -5,3 +5,4 @@
 .phpunit.result.cache
 .env
 /storage/app/sde
+/database/database.sqlite
