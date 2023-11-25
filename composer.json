@@ -17,12 +17,15 @@
     ],
     "require": {
         "php": "^8.2",
+        "ext-yaml": "*",
         "crell/serde": "^1.0",
+        "firebase/php-jwt": "^6.9",
         "guzzlehttp/guzzle": "^7.5",
         "illuminate/http": "^10.0",
         "illuminate/log": "^10.0",
         "laravel-zero/framework": "^10.2",
-        "nunomaduro/termwind": "^1.15.1"
+        "nunomaduro/termwind": "^1.15.1",
+        "spatie/once": "^3.1"
     },
     "require-dev": {
         "laravel/pint": "^1.13",
