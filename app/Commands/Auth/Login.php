@@ -10,6 +10,7 @@ use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Process\PhpExecutableFinder;
 use Symfony\Component\Process\Process;
+
 use function Termwind\terminal;
 
 #[AsCommand(name: 'auth:login')]
