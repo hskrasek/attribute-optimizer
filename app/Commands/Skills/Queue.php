@@ -4,7 +4,6 @@ namespace App\Commands\Skills;
 
 use App\ESI\Auth\Token;
 use App\ESI\Http\Middleware;
-use App\ESI\SDE;
 use App\Type;
 use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
@@ -14,8 +13,6 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Console\Attribute\AsCommand;
-
-use function Termwind\render;
 
 #[AsCommand(name: 'skills:queue')]
 class Queue extends Command

@@ -15,7 +15,7 @@ final class Middleware
      */
     public static function refreshToken(Token $token): callable
     {
-        return static function(callable $handler) use ($token): callable {
+        return static function (callable $handler) use ($token): callable {
             return static function (RequestInterface $request, array $options) use ($handler, $token) {
                 if (!$token->isValid()) {
                     $clientId = config('esi.auth.client_id');

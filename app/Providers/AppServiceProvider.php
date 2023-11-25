@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton(
             SerdeCommon::class,
-            fn () => new SerdeCommon()
+            fn() => new SerdeCommon()
         );
 
         $this->app->alias(SerdeCommon::class, 'serde');

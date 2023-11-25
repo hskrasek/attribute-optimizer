@@ -16,12 +16,23 @@ final class SDE
         //TODO: Cache this
         //TODO: Use serde to deserialize this into and object
         //TODO: Or replace this with SQLite data set and query. OOM with this solution
-        $types = once(fn () => yaml_parse_file(Storage::path('sde/fsd/typeIDs.yaml')));
+        $types = once(fn() => yaml_parse_file(Storage::path('sde/fsd/typeIDs.yaml')));
 
         if ($key === null) {
             return $types;
         }
 
         return $types[$key];
+    }
+
+    public static function groups(?string $key = null): array
+    {
+        $groups = once(fn() => yaml_parse_file(Storage::path('sde/fsd/groupIDs.yaml')));
+
+        if ($key === null) {
+            return $groups;
+        }
+
+        return $groups[$key];
     }
 }

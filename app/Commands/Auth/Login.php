@@ -2,7 +2,6 @@
 
 namespace App\Commands\Auth;
 
-use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Env;
 use Illuminate\Support\Str;
@@ -116,7 +115,7 @@ class Login extends Command
     protected function serverCommand(): array
     {
         return [
-            (new PhpExecutableFinder)->find(false),
+            (new PhpExecutableFinder())->find(false),
             '-S',
             Env::get('SERVER_HOST', '127.0.0.1') . ':8000',
             __DIR__ . '/../../server.php'
@@ -130,7 +129,7 @@ class Login extends Command
      */
     protected function handleProcessOutput(): callable
     {
-        return fn ($type, $buffer) => str($buffer)->explode("\n")->each(function ($line) {
+        return fn($type, $buffer) => str($buffer)->explode("\n")->each(function ($line) {
             if (str($line)->contains('Development Server (http')) {
                 if ($this->serverRunningHasBeenDisplayed) {
                     return;
@@ -178,11 +177,11 @@ class Login extends Command
 
                 $dots = max(terminal()->width() - mb_strlen($formattedStartedAt) - mb_strlen($file) - mb_strlen($runTime) - 9, 0);
 
-                $this->output->write(' '.str_repeat('<fg=gray>.</>', $dots));
+                $this->output->write(' ' . str_repeat('<fg=gray>.</>', $dots));
                 $this->output->writeln(" <fg=gray>~ {$runTime}s</>");
             } elseif (str($line)->contains(['Closed without sending a request'])) {
                 // ...
-            } elseif (! empty($line)) {
+            } elseif (!empty($line)) {
                 $position = strpos($line, '] ');
 
                 if ($position !== false) {

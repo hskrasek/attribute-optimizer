@@ -24,9 +24,7 @@ final class Token
         public int    $expiresIn,
         #[Serde\Field('refresh_token')]
         public string $refreshToken,
-    )
-    {
-    }
+    ) {}
 
     public static function make(string $body): self
     {
